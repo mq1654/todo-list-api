@@ -8,7 +8,7 @@ class ApplicationController < ActionController::API
     if decoded
       @current_user = User.find_by(id: decoded[:user_id])
     end
-    render json: { error: "Bạn chưa đăng nhập hoặc Token không hợp lệ" }, status: :unauthorized unless @current_user
+    render json: { error: "You are not logged in, or the token is invalid." }, status: :unauthorized unless @current_user
   end
   def current_user
     @current_user
